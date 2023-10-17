@@ -11,7 +11,7 @@ int print_oct(va_list val)
 	int *array;
 	unsigned int num = va_arg(val, unsigned int);
 	unsigned int tem = num;
-	
+
 	while (num / 8 != 0)
 	{
 		num = num / 8;

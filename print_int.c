@@ -1,16 +1,14 @@
 #include "main.h"
-
 /**
  * print_int - prints integer
  * @args: argument to print
  * Return: number of characters printed
  */
-
 int print_int(va_list args)
 {
 	int n = va_arg(args, int);
 	int num, last = n % 10, digit, exp = 1;
-	int ctr = 1;
+	int  i = 1;
 
 	n = n / 10;
 	num = n;
@@ -19,10 +17,11 @@ int print_int(va_list args)
 	{
 		_putchar('-');
 		num = -num;
+		n = -n;
 		last = -last;
-		ctr++;
+		i++;
 	}
-	if (last > 0)
+	if (num > 0)
 	{
 		while (num / 10 != 0)
 		{
@@ -36,17 +35,16 @@ int print_int(va_list args)
 			_putchar(digit + '0');
 			num = num - (digit * exp);
 			exp = exp / 10;
-			ctr++
+			i++;
 		}
 	}
 	_putchar(last + '0');
 
-	return (ctr);
+	return (i);
 }
 
-#include "main.h"
 /**
- * print_dec - prints decimals
+ * print_dec - prints decimal
  * @args: argument to print
  * Return: number of characters printed
  */
@@ -54,8 +52,9 @@ int print_int(va_list args)
 int print_dec(va_list args)
 {
 	int n = va_arg(args, int);
-	int num, last = n % 10, digit, exp = 1;
-	int ctr = 1;
+	int num, last = n % 10, digit;
+	int  i = 1;
+	int exp = 1;
 
 	n = n / 10;
 	num = n;
@@ -65,27 +64,27 @@ int print_dec(va_list args)
 		_putchar('-');
 		num = -num;
 		n = -n;
-		last - -last;
-		ctr++;
+		last = -last;
+		i++;
 	}
 	if (num > 0)
 	{
 		while (num / 10 != 0)
-                {
-                        exp = exp * 10;
-                        num = num / 10;
-                }
-                num = n;
-                while (exp > 0)
-                {
-                        digit = num / exp;
-                        _putchar(digit + '0');
-                        num = num - (digit * exp);
-                        exp = exp / 10;
-                        ctr++
-                }
-        }
-        _putchar(last + '0');
+		{
+			exp = exp * 10;
+			num = num / 10;
+		}
+		num = n;
+		while (exp > 0)
+		{
+			digit = num / exp;
+			_putchar(digit + '0');
+			num = num - (digit * exp);
+			exp = exp / 10;
+			i++;
+		}
+	}
+	_putchar(last + '0');
 
-	return (ctr);
+	return (i);
 }

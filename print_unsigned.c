@@ -21,7 +21,7 @@ int print_unsigned(va_list args)
 		num = -num;
 		n = -n;
 		last = -last;
-		ctr++
+		ctr++;
 	}
 	if (num > 0)
 	{

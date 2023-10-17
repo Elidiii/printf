@@ -16,7 +16,7 @@ int print_hex(va_list val)
 	while (num / 16 != 0)
 	{
 		num = num / 16;
-		ctr++
+		ctr++;
 	}
 	ctr++;
 
